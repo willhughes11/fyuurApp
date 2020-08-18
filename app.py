@@ -5,7 +5,14 @@
 import json
 import dateutil.parser
 import babel
-from flask import Flask, render_template, request, Response, flash, redirect, url_for
+from flask import (
+  Flask, 
+  render_template, 
+  request, Response, 
+  flash, 
+  redirect, 
+  url_for
+)
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import cast, String, func, distinct, ARRAY, Table
@@ -77,7 +84,7 @@ def search_venues():
   #searches the venues
 
   search_term = request.form.get('search_term', '')
-  response = Venue.query.filter(Venue.name.like(f'%{search_term}%'))\
+  response = Venue.query.filter(Venue.name.ilike(f'%{search_term}%'))\
   .with_entities(func.count(Venue.id).label('count'), postgresql.array_agg(
     func.json_build_object('id',Venue.id,'name',Venue.name,)).label('data')).all()
 
@@ -194,7 +201,7 @@ def search_artists():
   #searches the artists
 
   search_term = request.form.get('search_term', '')
-  response = Artist.query.filter(Artist.name.like(f'%{search_term}%'))\
+  response = Artist.query.filter(Artist.name.ilike(f'%{search_term}%'))\
   .with_entities(func.count(Artist.id).label('count'), postgresql.array_agg(
     func.json_build_object('id',Artist.id,'name',Artist.name,)).label('data')).all()
 
