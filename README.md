@@ -9,10 +9,8 @@ Your job is to build out the data models to power the API endpoints for the Fyyu
 
 ### Tech Stack
 
-Our tech stack will include:
-
-* **SQLAlchemy ORM** to be our ORM library of choice
-* **PostgreSQL** as our database of choice
-* **Python3** and **Flask** as our server language and server framework
-* **Flask-Migrate** for creating and running schema migrations
-* **HTML**, **CSS**, and **Javascript** with [Bootstrap 3](https://getbootstrap.com/docs/3.4/customize/) for our website's frontend
+* **SQLAlchemy ORM**
+* **PostgreSQL**
+* **Python3** and **Flask**
+* **Flask-Migrate**
+* **HTML**, **CSS**, and **Javascript** with [Bootstrap 3](https://getbootstrap.com/docs/3.4/customize/)
